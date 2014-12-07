@@ -120,4 +120,15 @@ Uuo=294
 
 #Introduction
 print("Welcome to the Chemistry Mole Converter by Zach Panzarino.")
-print("Make sure to use just the element symbol with the correct capitalization")
+print("Make sure to use just the element symbol (Not the Name) with the correct capitalization")
+
+#Func for different types
+def g2mol(g, weight):
+    result=None
+    result=g/weight
+    return (result)
+def mol2g(mol, weight):
+    result=None
+    result=mol*weight
+    return (result)
+

@@ -131,16 +131,16 @@ def mol2g(mol, weight):
     result=mol*weight
     return (result)
 def mol2molec(mol):
-    result=mol*6.022*10^23
+    result=mol*602200000000000000000000
     return(result)
 def molec2mol(molec):
-    result=molec/(6.022*10^23)
+    result=molec/602200000000000000000000
     return(result)
 def g2molec(g, weight):
-    result=(g*6.022*10^23)/weight
+    result=(g*602200000000000000000000)/weight
     return(result)
 def molec2g(molec, weight):
-    result=(molec*weight)/(6.022*10^23)
+    result=(molec*weight)/(602200000000000000000000)
     return(result)
 
 #Program
@@ -159,30 +159,30 @@ while go:
         element=eval(input("What is one of the elements?"))
         sgelementnum=int(input("How many of this element?"))
         convweight+=element*sgelementnum
-    if convfrom == "grams" and convto == "mole":
-        grams = int(input("How many grams?"))
+    if convfrom == "grams" and convto == "moles":
+        grams = float(input("How many grams?"))
         end = g2mol(grams, convweight)
-        print(end + "mol")
-    if convfrom == "mole" and convto == "grams":
-        moles = int(input("How many moles?"))
+        print(end)
+    if convfrom == "moles" and convto == "grams":
+        moles = float(input("How many moles?"))
         end = mol2g(moles, convweight)
-        print(end + "g")
-    if convfrom == "mole" and convto == "molecules":
-        moles = int(input("How many moles?"))
+        print(end)
+    if convfrom == "moles" and convto == "molecules":
+        moles = float(input("How many moles?"))
         end = mol2molec(moles)
-        print(end + "molec")
+        print(end)
     if convfrom == "molecules" and convto == "moles":
-        molecules = int(input("How many molecules?"))
+        molecules = float(input("How many molecules?"))
         end = molec2mol(molecules)
-        print(end + "mol")
+        print(end)
     if convfrom == "grams" and convto == "molecules":
-        grams = int(input("How many grams?"))
+        grams = float(input("How many grams?"))
         end = g2molec(grams, convweight)
-        print(end + "molec")
+        print(end)
     if convfrom == "molecules" and convto == "grams":
-        molecules = int(input("How many molecules?"))
+        molecules = float(input("How many molecules?"))
         end = molec2g(molecules, convweight)
-        print(end + "g")
+        print(end)
     #End
     again = input("Do you need to do another calculation?").lower()
     if again == "yes":

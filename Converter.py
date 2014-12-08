@@ -120,15 +120,75 @@ Uuo=294
 
 #Introduction
 print("Welcome to the Chemistry Mole Converter by Zach Panzarino.")
-print("Make sure to use just the element symbol (Not the Name) with the correct capitalization")
+print("Make sure to use just the element symbol (Not the Name) with the correct capitalization.")
+print("Conversions can be done between grams, moles, and number of molecules.")
 
 #Func for different types
 def g2mol(g, weight):
-    result=None
     result=g/weight
     return (result)
 def mol2g(mol, weight):
-    result=None
     result=mol*weight
     return (result)
+def mol2molec(mol):
+    result=mol*6.022*10^23
+    return(result)
+def molec2mol(molec):
+    result=molec/(6.022*10^23)
+    return(result)
+def g2molec(g, weight):
+    result=(g*6.022*10^23)/weight
+    return(result)
+def molec2g(molec, weight):
+    result=(molec*weight)/(6.022*10^23)
+    return(result)
 
+#Program
+go=True
+convfrom=None
+convto=None
+convweight=None
+elementnum=None
+while go:
+    end = None
+    convweight = 0
+    convfrom=input("What do you want to convert from? (Write out the full name)").lower()
+    convto=input("What do you want to convert to? (Write out the full name)").lower()
+    elementnum=int(input("How many different elements are in the molecule?"))
+    for x in range(elementnum):
+        element=eval(input("What is one of the elements?"))
+        sgelementnum=int(input("How many of this element?"))
+        convweight+=element*sgelementnum
+    if convfrom == "grams" and convto == "mole":
+        grams = int(input("How many grams?"))
+        end = g2mol(grams, convweight)
+        print(end + "mol")
+    if convfrom == "mole" and convto == "grams":
+        moles = int(input("How many moles?"))
+        end = mol2g(moles, convweight)
+        print(end + "g")
+    if convfrom == "mole" and convto == "molecules":
+        moles = int(input("How many moles?"))
+        end = mol2molec(moles)
+        print(end + "molec")
+    if convfrom == "molecules" and convto == "moles":
+        molecules = int(input("How many molecules?"))
+        end = molec2mol(molecules)
+        print(end + "mol")
+    if convfrom == "grams" and convto == "molecules":
+        grams = int(input("How many grams?"))
+        end = g2molec(grams, convweight)
+        print(end + "molec")
+    if convfrom == "molecules" and convto == "grams":
+        molecules = int(input("How many molecules?"))
+        end = molec2g(molecules, convweight)
+        print(end + "g")
+    #End
+    again = input("Do you need to do another calculation?").lower()
+    if again == "yes":
+        go = True
+    elif again == "no":
+        go = False
+    else:
+        go = False
+print("Looks like we are done here.")

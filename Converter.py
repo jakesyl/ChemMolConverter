@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+
 #Adding Elements Weights
 H=1
 He=4
